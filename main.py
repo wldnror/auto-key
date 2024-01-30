@@ -13,7 +13,14 @@ def emulate_keyboard():
     time.sleep(0.1)
     os.system('echo -ne "\x00\x00" > /dev/hidg0')  # 모든 키 뗌
 
+# 버튼 눌림 이벤트
+button.when_pressed = emulate_keyboard
+
+# 중간 결과 출력 예제
+print("코드가 시작됨")
+
 # 무한 루프로 코드 실행 유지
 while True:
     button.wait_for_press()  # 버튼 눌림을 기다림
+    print("버튼이 눌렸습니다.")
     emulate_keyboard()
