@@ -1,11 +1,5 @@
 +=:: ; Shift와 '=' 키를 동시에 눌렀을 때 실행
-Run, "C:\file\ghost.mp4" ; ghost.mp4 파일 실행
-Sleep, 1000 ; 파일이 실행되기를 기다림 (필요한 경우 시간 조정)
-Send, {F11} ; 전체 화면 단축키 (미디어 플레이어에 따라 다를 수 있음)
-Sleep, 500 ; 전체 화면 전환을 기다림
-Loop, 100 ; 볼륨 증가 키를 여러 번 누름 (필요한 횟수에 따라 조정)
-{
-    Send, {Volume_Up} 
-    Sleep, 100
-}
+SoundSet, 50 ; 시스템 볼륨을 50%로 설정
+SoundSet, 0, , Mute ; 시스템 음소거 해제
+Run, "C:\Program Files\VideoLAN\VLC\vlc.exe" --fullscreen --volume=128 "C:\file\ghost.mp4" ; 전체 화면으로 영상 재생 및 VLC 내부 볼륨 50%로 설정
 return
