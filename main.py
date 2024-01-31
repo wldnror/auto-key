@@ -7,20 +7,19 @@ button = Button(26)
 
 # 키보드 입력 에뮬레이트 함수
 def emulate_keyboard():
+    print("버튼이 눌렸습니다.")
     # Shift + '=' 키 입력
-    # os.system('echo -ne "\\x02\\x38" > /dev/hidg0')  # Shift 키 누름
-    time.sleep(1)
     os.system('sudo bash -c "echo -ne \\"\\x02\\x00\\x2E\\x00\\x00\\x00\\x00\\x00\\" > /dev/hidg0"')  # 시프트 + '=' 키 누름
     time.sleep(0.1)
     os.system('sudo bash -c "echo -ne \\"\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\" > /dev/hidg0"')  # 모든 키 뗌
+
 # 버튼 눌림 이벤트
 button.when_pressed = emulate_keyboard
+# 버튼 해제 이벤트 (필요 없는 경우 비워두거나 None 할당)
+button.when_released = None
 
-# 중간 결과 출력 예제
 print("코드가 시작됨")
 
 # 무한 루프로 코드 실행 유지
 while True:
-    button.wait_for_press()  # 버튼 눌림을 기다림
-    print("버튼이 눌렸습니다.")
-    emulate_keyboard()
+    time.sleep(1)  # CPU 사용률을 줄이기 위한 잠시 대기
