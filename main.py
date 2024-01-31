@@ -3,7 +3,7 @@ import os
 import time
 
 # 버튼 설정 (GPIO 26)
-button = Button(26, bounce_time=0.2)  # 0.2초의 디바운싱 시간 적용
+button = Button(26, bounce_time=0.3)  # 0.2초의 디바운싱 시간 적용
 
 # 키보드 입력 에뮬레이트 함수
 def emulate_keyboard():
