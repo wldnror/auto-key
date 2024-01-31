@@ -22,4 +22,4 @@ print("코드가 시작됨")
 
 # 무한 루프로 코드 실행 유지
 while True:
-    time.sleep(1)  # CPU 사용률을 줄이기 위한 잠시 대기
+    time.sleep(0.3)  # CPU 사용률을 줄이기 위한 잠시 대기
