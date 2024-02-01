@@ -10,7 +10,8 @@ def emulate_keyboard():
     print("버튼이 눌렸습니다.")
     # Shift + '=' 키 입력
     # "Ctrl" + "Shift" + "Alt" + "+" 를 누르는 코드
-    os.system('sudo bash -c "echo -ne \\"\\x1E\\xE3\\xE9\\x1D\\x00\\x00\\x00\\x00\\" > /dev/hidg0"')
+    os.system('sudo bash -c "echo -ne \\"\\x0F\\x00\\x27\\x00\\x00\\x00\\x00\\x00\\" > /dev/hidg0"')  # Ctrl + Shift + Alt + Windows + '0' 키 누름
+
     time.sleep(0.1)
     os.system('sudo bash -c "echo -ne \\"\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\" > /dev/hidg0"')  # 모든 키 뗌
 
