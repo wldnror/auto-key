@@ -24,9 +24,11 @@ def button_pressed_callback():
 
 def button_released_callback():
     global button_pressed
+    if button_pressed:  # 버튼이 눌려있는 상태에서 해제되는 경우에만 실행
+        print("버튼이 해제되었습니다.")  # 버튼 해제 시 출력
     button_pressed = False  # 버튼이 해제되었음을 표시
 
-# 이벤트 할당
+# 이벤트 할당 (이 부분은 사용하는 라이브러리 또는 프레임워크에 따라 달라질 수 있습니다.)
 button.when_pressed = button_pressed_callback
 button.when_released = button_released_callback
 
